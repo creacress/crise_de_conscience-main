@@ -1,13 +1,15 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import { jwtDecode } from 'jwt-decode';
 
-type User = {
+type DecodedToken = {
   username: string;
   isAdmin: boolean;
-} | null;
+};
+
+type User = DecodedToken | null;
 
 type AuthContextType = {
   user: User;
@@ -27,18 +29,25 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [isAdmin, setIsAdmin] = useState(false);
   const router = useRouter();
 
+  const logout = useCallback(() => {
+    setUser(null);
+    setIsAdmin(false);
+    localStorage.removeItem('token');
+    router.push('/admin/login');
+  }, [router]);
+
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        const decoded = jwtDecode<{ username: string; isAdmin: boolean }>(token);
+        const decoded = jwtDecode<DecodedToken>(token);
         setUser(decoded);
         setIsAdmin(decoded.isAdmin);
       } catch {
         logout();
       }
     }
-  }, []);
+  }, [logout]);
 
   const login = async (username: string, password: string): Promise<boolean> => {
     try {
@@ -51,7 +60,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       if (!res.ok) return false;
 
       const { token } = await res.json();
-      const decoded = jwtDecode<{ username: string; isAdmin: boolean }>(token);
+      const decoded = jwtDecode<DecodedToken>(token);
 
       setUser(decoded);
       setIsAdmin(decoded.isAdmin);
@@ -61,13 +70,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
     } catch {
       return false;
     }
-  };
-
-  const logout = () => {
-    setUser(null);
-    setIsAdmin(false);
-    localStorage.removeItem('token');
-    router.push('/admin/login');
   };
 
   return (
