@@ -1,7 +1,8 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { useRouter } from 'next/navigation'; 
+import { useRouter } from 'next/navigation';
+import { jwtDecode } from 'jwt-decode';
 
 type User = {
   username: string;
@@ -11,7 +12,7 @@ type User = {
 type AuthContextType = {
   user: User;
   isAdmin: boolean;
-  login: (username: string, password: string) => boolean;
+  login: (username: string, password: string) => Promise<boolean>;
   logout: () => void;
 };
 
@@ -27,38 +28,45 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const router = useRouter();
 
   useEffect(() => {
-    // Vérification côté client uniquement
-    if (typeof window !== 'undefined') {
-      const storedUser = localStorage.getItem('adminUser');
-      if (storedUser) {
-        try {
-          const parsedUser = JSON.parse(storedUser);
-          setUser(parsedUser);
-          setIsAdmin(parsedUser.isAdmin);
-        } catch (error) {
-          console.error('Error parsing user data', error);
-          logout();
-        }
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        const decoded = jwtDecode<{ username: string; isAdmin: boolean }>(token);
+        setUser(decoded);
+        setIsAdmin(decoded.isAdmin);
+      } catch {
+        logout();
       }
     }
   }, []);
 
-  const login = (username: string, password: string): boolean => {
-    if (username === 'admin' && password === 'admin123') {
-      const userData = { username, isAdmin: true };
-      setUser(userData);
-      setIsAdmin(true);
-      localStorage.setItem('adminUser', JSON.stringify(userData));
+  const login = async (username: string, password: string): Promise<boolean> => {
+    try {
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
+
+      if (!res.ok) return false;
+
+      const { token } = await res.json();
+      const decoded = jwtDecode<{ username: string; isAdmin: boolean }>(token);
+
+      setUser(decoded);
+      setIsAdmin(decoded.isAdmin);
+      localStorage.setItem('token', token);
       router.push('/admin/dashboard');
       return true;
+    } catch {
+      return false;
     }
-    return false;
   };
 
-  const logout = (): void => {
+  const logout = () => {
     setUser(null);
     setIsAdmin(false);
-    localStorage.removeItem('adminUser');
+    localStorage.removeItem('token');
     router.push('/admin/login');
   };
 
@@ -71,8 +79,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
 export function useAuth(): AuthContextType {
   const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
+  if (!context) throw new Error('useAuth must be used within AuthProvider');
   return context;
 }

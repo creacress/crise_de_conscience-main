@@ -1,19 +1,22 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '@/app/context/authcontext/page';
-import { useRouter } from 'next/navigation';
 
 export default function AdminLogin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const { login } = useAuth();
-  const router = useRouter();
+  const { login, logout, user } = useAuth();
+
+  useEffect(() => {
+    // Déconnexion automatique si déjà connecté (sécurité)
+    if (user) logout();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const success = login(username, password);
+    const success = await login(username, password);
     if (!success) {
       setError('Identifiants incorrects');
     }
