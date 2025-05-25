@@ -65,28 +65,41 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
-        {/* Données structurées JSON-LD de l&apos;organisation */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'NGO',
-              name: 'Crise de Conscience',
-              url: 'https://criseconscience.org',
-              areaServed: 'FR',
-              availableLanguage: ['French'],
-              contactPoint: {
-                '@type': 'ContactPoint',
-                contactType: 'Support',
-                telephone: '+33-6-00-00-00-00',
-                email: 'contact@criseconscience.org',
-                availableLanguage: 'French',
-              },
-            }),
-          }}
-        />
-      </head>
+  {/* Google Analytics */}
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YB418HLWT"></script>
+  <script
+    dangerouslySetInnerHTML={{
+      __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-4YB418HLWT');
+      `,
+    }}
+  />
+
+  {/* Données structurées JSON-LD */}
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'NGO',
+        name: 'Crise de Conscience',
+        url: 'https://criseconscience.org',
+        areaServed: 'FR',
+        availableLanguage: ['French'],
+        contactPoint: {
+          '@type': 'ContactPoint',
+          contactType: 'Support',
+          telephone: '+33-6-00-00-00-00',
+          email: 'contact@criseconscience.org',
+          availableLanguage: 'French',
+        },
+      }),
+    }}
+  />
+</head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-[#f1f5f9] text-gray-800`}
       >
