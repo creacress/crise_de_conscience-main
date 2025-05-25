@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 
 export default function Temoignages() {
   return (
@@ -75,7 +74,7 @@ export default function Temoignages() {
             Votre témoignage peut faire la différence pour quelqu&apos;un d&apos;autre.
           </p>
           <a
-            href="mailto:contact@votreassociation.org"
+            href="mailto:contact@criseconscience.org"
             className="inline-block bg-emerald-600 text-white px-6 py-2 rounded hover:bg-emerald-700 transition"
           >
             Envoyer mon témoignage

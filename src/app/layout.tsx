@@ -92,7 +92,7 @@ export default function RootLayout({
         contactPoint: {
           '@type': 'ContactPoint',
           contactType: 'Support',
-          telephone: '+33-6-00-00-00-00',
+          telephone: '+33-7-66-02-96-32',
           email: 'contact@criseconscience.org',
           availableLanguage: 'French',
         },
