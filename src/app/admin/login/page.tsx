@@ -1,17 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useAuth } from '@/app/context/authcontext/page';
 
 export default function AdminLogin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const { login, logout, user } = useAuth();
-
-  useEffect(() => {
-    if (user) logout();
-  }, [user, logout]); // ✅ plus de warning ESLint
+  const { login } = useAuth(); // ✅ plus besoin de logout ici
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
