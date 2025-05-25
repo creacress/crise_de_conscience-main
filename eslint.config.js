@@ -10,6 +10,16 @@ const compat = new FlatCompat({
 });
 
 export default [
+  {
+    ignores: [
+      "**/node_modules/**",
+      ".next/**",
+      "public/**",
+      "dist/**",
+      "coverage/**",
+      "src/app/forum/page.tsx", // ⬅ ajoute ici les fichiers à ignorer
+    ],
+  },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
     files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
