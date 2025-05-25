@@ -10,9 +10,8 @@ export default function AdminLogin() {
   const { login, logout, user } = useAuth();
 
   useEffect(() => {
-    // Déconnexion automatique si déjà connecté (sécurité)
     if (user) logout();
-  }, []);
+  }, [user, logout]); // ✅ plus de warning ESLint
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,7 +55,7 @@ export default function AdminLogin() {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200"
+            className="w-full bg-emerald-600 text-white py-2 px-4 rounded-md hover:bg-emerald-700 transition duration-200"
           >
             Se connecter
           </button>
