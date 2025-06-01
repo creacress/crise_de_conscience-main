@@ -64,7 +64,7 @@ const ProphetiesTJ = () => {
           discrètement plus tard.
         </p>
         <Link
-          href="/croyances-temoins-jehovah/1925"
+          href="/croyances-temoins-jehovah/fausses-propheties/1925"
           className="text-emerald-600 hover:text-emerald-800 underline"
         >
           En savoir plus sur la croyance de 1925
@@ -90,7 +90,7 @@ const ProphetiesTJ = () => {
           adeptes d&apos;avoir mal compris ses propos pourtant clairs.
         </p>
         <Link
-          href="/croyances-temoins-jehovah/1975"
+          href="/croyances-temoins-jehovah/fausses-propheties/1975"
           className="text-emerald-600 hover:text-emerald-800 underline"
         >
           En savoir plus sur la croyance de 1975
