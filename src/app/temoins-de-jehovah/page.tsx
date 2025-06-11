@@ -17,6 +17,9 @@ export default function TJPage() {
           <Link href="/temoins-de-jehovah/origines" className="underline">
             Origines du mouvement
           </Link>
+          <Link href="/temoins-de-jehovah/contre-article/" className="underline">
+            Contre-article du site officiel des TJ
+          </Link>
         </li>
         <li>
           <Link href="/temoins-de-jehovah/doctrine" className="underline">
