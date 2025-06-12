@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Info, Users, FileText, Landmark, HeartHandshake } from 'lucide-react'
 import { useAuth } from '@/app/context/authcontext/page'
+import ContreArticles from '@/app/temoins-de-jehovah/contre-articles/page';
 
 export default function Home() {
   const { isAdmin } = useAuth()
@@ -61,6 +62,9 @@ export default function Home() {
         <Bloc icon={<FileText className="w-8 h-8 text-emerald-600" />} title="Documents utiles" text="Accédez aux lettres internes, documents judiciaires, témoignages et ressources PDF pour comprendre et informer." href="/documents" />
         <Bloc icon={<Landmark className="w-8 h-8 text-emerald-600" />} title="L’association" text="Pourquoi Crise de Conscience existe ? Qui sommes-nous ? Découvrez notre équipe et nos engagements." href="/qui-sommes-nous" />
       </section>
+      
+      {/* Section Contres Articles */}
+      <ContreArticles/>
 
       {/* Appel à action final */}
       <section className="bg-[#f1f5f9] py-16 px-6 text-center">

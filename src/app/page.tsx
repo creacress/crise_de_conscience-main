@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Home from "@/app/components/home-client/home-client"
+import ContreArticles from './temoins-de-jehovah/contre-articles/page'
 
 export const metadata: Metadata = {
   title: 'Crise de Conscience – Aide aux ex-Témoins de Jéhovah',
