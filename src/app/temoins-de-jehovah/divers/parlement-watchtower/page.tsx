@@ -7,7 +7,7 @@ export default function DeputeDenonceTJ() {
       <div className="max-w-4xl mx-auto px-4 pt-8">
         <div className="rounded-md overflow-hidden shadow-sm mb-6">
           <Image
-            src="/Baby-of-the-House-Sam-Carling-delivers-his-maiden-speech-to-the-Commons_Original-Video_m256451.mp4.0.jpg.avif"
+            src="/sam-carling-parlement.avif"
             alt="Sam Carling à la Chambre des communes"
             width={1024}
             height={576}
@@ -204,7 +204,7 @@ export default function DeputeDenonceTJ() {
           <div className="bg-white border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
             <div className="h-48 overflow-hidden">
               <Image
-                src="/raymond-franz-crise-de-conscience.jpg"
+                src="/raymond_franz.jpg"
                 alt="Raymond Franz, ex-dirigeant JW"
                 width={800}
                 height={400}
@@ -214,7 +214,7 @@ export default function DeputeDenonceTJ() {
             <div className="p-5">
               <h4 className="text-lg font-semibold text-gray-800 mb-1">
                 <Link
-                  href="/temoins-de-jehovah/contre-articles/questions-bibliques/crise-de-conscience-raymond-franz"
+                  href="/temoins-de-jehovah/contre-articles/questions-bibliques/crise-de-conscience-livre"
                   className="hover:underline"
                 >
                   Crise de conscience – Raymond Franz
