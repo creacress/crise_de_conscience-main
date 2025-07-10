@@ -10,21 +10,43 @@ export default function OriginesTJ() {
       transition={{ duration: 0.5 }}
       className="max-w-3xl mx-auto px-6 py-20 text-gray-800"
     >
-      <h1 className="text-3xl font-bold text-emerald-700 mb-6">
+      <motion.h1
+        className="text-4xl font-extrabold text-emerald-700 mb-10 text-center"
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.2 }}
+      >
         Origines des Témoins de Jéhovah
-      </h1>
+      </motion.h1>
 
-      <p className="mb-4">
-        Le mouvement des Témoins de Jéhovah trouve ses racines dans les années 1870 avec Charles Taze Russell, un prédicateur américain qui fonde un groupe nommé les « Étudiants de la Bible ».
-      </p>
-
-      <p className="mb-4">
-        En 1881, il fonde la <em>Zion&apos;s Watch Tower Tract Society</em>, renommée plus tard en <em>Watchtower Bible and Tract Society</em>, qui devient l’organe officiel du mouvement. En 1931, sous la direction de Joseph Rutherford, l&apos;organisation adopte officiellement le nom de « Témoins de Jéhovah ».
-      </p>
-
-      <p>
-        Leur objectif ? Restaurer ce qu&apos;ils considèrent comme la véritable forme du christianisme primitif, rejetant la Trinité et mettant l’accent sur l’utilisation du nom « Jéhovah ».
-      </p>
+      <motion.section
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4 }}
+        className="space-y-6 text-lg leading-relaxed"
+      >
+        <p>
+          Le mouvement des Témoins de Jéhovah trouve ses racines dans les années 1870 avec Charles Taze Russell, fondateur du groupe des Étudiants de la Bible.
+        </p>
+        <p>
+          Rejetant les dogmes traditionnels des Églises établies, Russell prônait une lecture personnelle de la Bible, et dénonçait toute forme d’organisation religieuse structurée.
+        </p>
+        <p>
+          Pourtant, sous la direction de son successeur Joseph Rutherford, ce mouvement s’est transformé en une organisation centralisée et autoritaire, rompant radicalement avec les principes initiaux.
+        </p>
+        <p>
+          En 1931, le nom « Témoins de Jéhovah » fut adopté, marquant une scission définitive avec d’autres groupes issus du courant russelliste.
+        </p>
+        <p>
+          L’organisation moderne se distingue par son rejet de la Trinité, sa valorisation du nom « Jéhovah » — une transcription linguistiquement erronée du tétragramme YHWH — et son insistance sur l’autorité exclusive de son Collège central.
+        </p>
+        <p>
+          Cette évolution doctrinale et structurelle fut souvent motivée non par une exégèse rigoureuse, mais par des considérations pratiques et disciplinaires, comme l’a démontré Raymond Franz, ancien membre du Collège central, dans <em>Crise de Conscience</em>.
+        </p>
+        <p>
+          Dès lors, l’objectif affiché de restaurer le christianisme primitif apparaît comme un projet idéologique sélectif, davantage modelé par les décisions humaines que par un retour fidèle aux textes bibliques.
+        </p>
+      </motion.section>
     </motion.main>
   );
 }
