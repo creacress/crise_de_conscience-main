@@ -1,4 +1,7 @@
-import Link from "next/link";
+
+
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function QuestionsBibliques() {
   return (
@@ -14,11 +17,12 @@ export default function QuestionsBibliques() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
         <div className="relative bg-white border rounded-lg overflow-hidden shadow hover:shadow-xl transition duration-300 group">
-          <div className="overflow-hidden h-48">
-            <img
+          <div className="relative overflow-hidden h-48">
+            <Image
               src="/502015177_univ_lsr_lg.jpg"
               alt="Image symbolique sur la vraie religion"
-              className="w-full h-full object-cover transform group-hover:scale-105 transition duration-300"
+              fill
+              className="object-cover transform group-hover:scale-105 transition duration-300"
             />
           </div>
           <div className="p-5">

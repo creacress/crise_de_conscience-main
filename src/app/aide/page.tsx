@@ -9,9 +9,15 @@ export default function Aide() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="py-20 px-6 max-w-4xl mx-auto text-gray-800"
+      className="py-20 px-6 max-w-4xl mx-auto text-gray-800 dark:text-gray-200"
     >
-      <h1 className="text-3xl font-bold text-emerald-700 mb-6">Être aidé</h1>
+      {/* Hero */}
+      <section className="text-center mb-12">
+        <h1 className="text-3xl md:text-4xl font-bold text-emerald-700 mb-3">Être aidé</h1>
+        <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
+          Vous n’êtes pas seul·e. Voici les ressources pour comprendre, agir et trouver du soutien.
+        </p>
+      </section>
 
       <section className="space-y-10 text-sm leading-relaxed">
         <div>
@@ -149,14 +155,11 @@ export default function Aide() {
         </div>
 
         {/* CTA final */}
-        <div className="bg-emerald-50 p-4 rounded border border-emerald-200 mt-6 text-center">
-          <h3 className="text-md font-semibold mb-2">
+        <div className="bg-emerald-50 dark:bg-emerald-900/20 p-6 rounded border border-emerald-200 dark:border-emerald-700 text-center mt-6">
+          <h3 className="text-md font-semibold mb-2 text-emerald-800 dark:text-emerald-200">
             Besoin d’écoute ou d’orientation ?
           </h3>
-          <p className="mb-3">
-            Notre équipe vous répond dans la bienveillance et la
-            confidentialité.
-          </p>
+          <p className="mb-3 text-sm">Notre équipe vous répond dans la bienveillance et la confidentialité.</p>
           <Link
             href="/contact"
             className="inline-block bg-emerald-600 text-white px-6 py-2 rounded hover:bg-emerald-700 transition"

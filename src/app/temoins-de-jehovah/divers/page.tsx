@@ -1,5 +1,4 @@
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
 
 export default function DiversPage() {
   return (
@@ -13,8 +12,8 @@ export default function DiversPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {/* Carte 1 */}
         <div className="relative bg-white border rounded-lg overflow-hidden shadow hover:shadow-xl transition duration-300 group">
-          <div className="overflow-hidden h-48 relative">
-            <Image
+          <div className="overflow-hidden h-48">
+            <img
               src="/501100016_univ_lsr_lg.jpg"
               alt="Poignée de main entre symboles religieux et financiers"
               fill
