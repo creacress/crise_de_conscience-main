@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 
 export default function ContreArticles() {
@@ -12,10 +13,11 @@ export default function ContreArticles() {
       <h2 className="text-2xl font-bold text-gray-800 mt-12 mb-4">Rubriques thématiques</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <Link href="/temoins-de-jehovah/contre-articles/questions-bibliques" className="relative group h-40 rounded-lg overflow-hidden shadow hover:shadow-lg transition">
-          <img
+          <Image
             src="/1011202_univ_pnr_md.jpg"
             alt="Questions bibliques"
-            className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
           <div className="absolute bottom-2 left-2 bg-white bg-opacity-80 px-3 py-1 rounded">
             <h3 className="text-gray-900 text-sm font-semibold">Questions bibliques</h3>
@@ -24,10 +26,11 @@ export default function ContreArticles() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <Link href="/temoins-de-jehovah/divers" className="relative group h-40 rounded-lg overflow-hidden shadow hover:shadow-lg transition">
-          <img
+          <Image
             src="/501100023_univ_lsr_lg.jpg"
             alt="Questions bibliques"
-            className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
           <div className="absolute bottom-2 left-2 bg-white bg-opacity-80 px-3 py-1 rounded">
             <h3 className="text-gray-900 text-sm font-semibold">Divers</h3>

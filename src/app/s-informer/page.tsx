@@ -9,11 +9,17 @@ export default function SInformer() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="py-20 px-6 max-w-4xl mx-auto text-gray-800"
+      className="py-20 px-6 max-w-4xl mx-auto text-gray-800 dark:text-gray-200"
     >
-      <h1 className="text-3xl font-bold text-emerald-700 mb-6">
-        S&apos;informer sur les dérives sectaires
-      </h1>
+      {/* Hero */}
+      <section className="text-center mb-12">
+        <h1 className="text-3xl md:text-4xl font-bold text-emerald-700 mb-3">
+          S’informer sur les dérives sectaires
+        </h1>
+        <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
+          Comprendre les mécanismes d’emprise mentale pour mieux les reconnaître et s’en protéger.
+        </p>
+      </section>
 
       <section className="space-y-10 text-sm leading-relaxed">
         {/* Définition */}
@@ -60,14 +66,13 @@ export default function SInformer() {
           </ul>
         </div>
 
-        {/* Infographie */}
-        <div className="bg-white border border-gray-200 rounded p-4 text-center shadow">
+        {/* Infographie améliorée */}
+        <div className="bg-gradient-to-br from-emerald-50 to-white dark:from-slate-800 dark:to-slate-700 border border-emerald-200 dark:border-slate-600 rounded-xl p-6 text-center shadow">
           <h3 className="text-md font-semibold text-emerald-700 mb-2">
             Infographie : Reconnaître une dérive sectaire
           </h3>
-          <div className="bg-gray-100 h-48 rounded flex items-center justify-center text-gray-500 italic">
-            (Infographie à venir ici : Signes visuels, triangle d’influence,
-            etc.)
+          <div className="bg-gray-100 dark:bg-slate-600 h-48 rounded flex items-center justify-center text-gray-500 dark:text-gray-300 italic">
+            (Infographie à venir ici : Signes visuels, triangle d’influence, etc.)
           </div>
         </div>
 
@@ -84,7 +89,7 @@ export default function SInformer() {
         </div>
 
         {/* Lien vers documents */}
-        <div className="bg-[#f1f5f9] p-4 border-l-4 border-emerald-600 rounded">
+        <div className="bg-[#f1f5f9] dark:bg-slate-800 p-4 border-l-4 border-emerald-600 rounded">
           📁 <strong>Explorer les preuves internes</strong> : Découvrez notre
           base de données contenant des{" "}
           <Link href="/documents" className="underline">
@@ -93,10 +98,12 @@ export default function SInformer() {
           , extraits du Shepherd Book, directives internes et bien plus encore.
         </div>
 
-        {/* Appel à l&apos;aide */}
-        <div className="bg-emerald-50 p-4 rounded border border-emerald-200 mt-6 text-center">
-          <h3 className="text-md font-semibold mb-2">Vous êtes concerné·e ?</h3>
-          <p className="mb-3">Parlez-en, vous n’êtes pas seul·e.</p>
+        {/* Appel à l’aide modernisé */}
+        <div className="bg-emerald-50 dark:bg-emerald-900/20 p-6 rounded border border-emerald-200 dark:border-emerald-700 text-center mt-6">
+          <h3 className="text-md font-semibold mb-2 text-emerald-800 dark:text-emerald-200">
+            Vous êtes concerné·e ?
+          </h3>
+          <p className="mb-3 text-sm">Parlez-en, vous n’êtes pas seul·e.</p>
           <Link
             href="/aide"
             className="inline-block bg-emerald-600 text-white px-6 py-2 rounded hover:bg-emerald-700 transition"
